@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.banner {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0px;
+    background: #fff;
+}
+
+.navbar {
+    min-height: 10vh;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img {
+    display: block;
+    width: 6%;
+    transform: scale(1.4);
+}
+
+img:hover {
+    transform: scale(1.5);
+}
+
+.navbar ul {
+    font-size: 15px;
+    flex: 0.3;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+section {
+    display: 10px;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.BUBBLE {
+    position: absolute;
+}
+
+button {
+    width: 150px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    font-size: 12px;
+}
+
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button2 {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+span {
+    background: #96c0bc;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    position: abolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}

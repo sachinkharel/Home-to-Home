@@ -1,0 +1,409 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.banner {
+    width: 100%;
+    height: 87.35vh;
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(172, 161, 169, 0.73)), url("/Home%20to%20Home/assets/images/background.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    width: 90%;
+    height: 11vh;
+    margin: auto;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 80px;
+    cursor: pointer;
+}
+
+.loginpic {
+    text-decoration: none;
+    height: 40%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.navbar ul li:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: whitesmoke;
+    margin-top: 12px;
+    margin-left: -40px;
+    text-align: center;
+}
+
+.dropdown-content ul li {
+    padding: 10px;
+    background: transparent;
+    border-radius: 0;
+}
+
+.navbar ul li:hover .dropdown-content ul li::after {
+    bottom: 5px;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #a5b6b4;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover:after {
+    width: 100%;
+}
+
+.search-box {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a5b6b4;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-btn {
+    color: #000;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #93aaa8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: whitesmoke;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+.search-box:hover>.search-txt {
+    width: 300px;
+    padding: 0 10px;
+}
+
+.search-box:hover>.search-btn {
+    color: whitesmoke;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: whitesmoke;
+}
+
+.content h1 {
+    color: whitesmoke;
+    font-size: 40px;
+    margin-top: 40px;
+    -webkit-text-stroke: 2px black;
+}
+
+.content p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    color: whitesmoke;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 0.8px solid whitesmoke;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: whitesmoke;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+span {
+    background: #a5b6b4;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+}
+
+.signInContainer {
+    background-color: #efefee;
+    height: 87.3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+}
+
+.column {
+    background-color: #fff;
+    min-height: 300px;
+    max-height: 100%;
+    width: 450px;
+    padding: 15px 35px;
+    overflow-y: auto;
+}
+
+.column form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.column form input[type='text'],
+.column form input[type='email'],
+.column form input[type='password'] {
+    font-size: 14px;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 1px solid #dedede;
+}
+
+.column form input[type='submit'] {
+    background-color: #4285f4;
+    color: #fff;
+    height: 36px;
+    width: 88px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.column .header {
+    padding: 5px 0;
+}
+
+.column h3 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0;
+    padding-top: 10px;
+    color: #000;
+}
+
+.column .header p {
+    font-size: 15px;
+}
+
+.column .header img {
+    width: 100px;
+}
+
+.column a {}
+
+.errorMessage {
+    color: #f00;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.signInMessage {
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.houseColumn {
+    background-color: #fff;
+    min-height: 300px;
+    max-height: 100%;
+    width: 450px;
+    padding: 15px 35px;
+    overflow-y: auto;
+}
+
+.houseColumn form {
+    flex-direction: column;
+}
+
+.houseColumn form input[type='radio'],
+.houseColumn form input[type='text'],
+.houseColumn form input[type='checkbox'],
+.houseColumn form input[type='date'] {
+    font-size: 14px;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 1px solid #dedede;
+}
+
+.houseColumn form select {
+    position: relative;
+    left: 8px;
+}
+
+.houseColumn form input[id=membershipType] {
+    position: relative;
+    left: 48px;
+    background-color: #dedede;
+}
+
+.houseColumn form input[id=registrationDate] {
+    position: relative;
+    left: 5px;
+    background-color: #dedede;
+}
+
+.houseColumn form input[type='submit'] {
+    background-color: #4285f4;
+    color: #fff;
+    height: 36px;
+    width: 88px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.houseColumn .header {
+    padding: 5px 0;
+}
+
+.houseColumn h3 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0;
+    padding-top: 10px;
+    color: #000;
+}
+
+.membership {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.membership .card {
+    position: relative;
+    min-width: 320px;
+    height: 300px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    margin: 30px;
+}
+
+.membership .card .box {
+    margin: 10px;
+    background: #a5b6b4;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.membership .card .box .cont {
+    padding: 15px;
+    text-align: center;
+}
+
+.membership .card .box .cont h2,
+h3,
+p {
+    padding: 9px;
+}
+
+.membership .card .box .cont a {
+    width: 55px;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #4285f4;
+    margin-top: 10px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.membership .card .box .cont a:hover {
+    background: #6caaa5;
+}
+
+.usimg {
+    padding: 5px;
+}
+
+.usimg .us {
+    position: absolute;
+    padding: 10px;
+}
