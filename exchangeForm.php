@@ -10,18 +10,16 @@
 
     if($_SESSION["userLoggedIn"]){
         echo'<a href="$userpage.php"></a>';
-        
-    
+
     }else{
         header("Location:login.php");
         exit;  
     }
-
     if(!$home -> checkList())
     {
         header("Location:validate.php");
     }
-    
+
     if(isset($_POST["submitButton"]))
     {
         $type = $_POST["homeType"];
