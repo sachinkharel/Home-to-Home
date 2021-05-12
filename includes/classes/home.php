@@ -5,7 +5,7 @@ class Home{
     public function __construct($con) {
         $this->con = $con;
     }
-    public function getHouseDetails($type, $loc, $availableat, $size, $img,$tmp){
+    public function getHouseDetails($type, $loc, $size, $date, $img,$tmp){
         $dir = "uploads/";
         $path = $dir . $img;
         $type = pathinfo($path,PATHINFO_EXTENSION);
@@ -15,17 +15,16 @@ class Home{
         {
             if(move_uploaded_file($tmp,$path));
             {
-                $sql = "INSERT into home (type,location,size,availableat,picture,userid) VALUES
+                $sql = "INSERT into home (type,location,size,availat,picture,userid) VALUES
                                              (:t,:l,:s,:a,:p,:uid)";
                 $query = $this -> con -> prepare($sql);
                 $query->bindValue(":l",$loc);
-                $query->bindValue(":a",$availableat);
+                $query->bindValue(":a",$date);
                 $query->bindValue(":s",$size);
                 $query->bindValue(":p",$img);
                 $query->bindValue(":t",$type);
                 $query->bindValue(":uid",$_SESSION["userId"]);
                 $query->execute();
-                header("Location: userpage.php");
             }
            
         }
@@ -44,9 +43,15 @@ class Home{
         while($row = $query -> fetch(PDO::FETCH_ASSOC))              
         {
             $loc = $row['location'];
-            echo $loc;
             $photo = $row['picture'];
-            echo "<img height = '200px' width = '100px' class= 'house-img' src='uploads/$photo'>";
+            $size = $row['size'];
+            $avail = $row['availat'];
+            echo "<div class = 'house-body'>
+            <img class = 'house-img' src='uploads/$photo'/>
+            <div class ='house-loc'>Location: $loc</div>
+            <div class ='house-size'>Size: $size</div>
+            <div class ='house-avail'>Available Till: $avail</div>
+            </div>";
         }
     }
 
@@ -57,7 +62,6 @@ class Home{
         $query -> bindValue(":uid",$_SESSION["userId"]);
         $query ->execute();
         $this -> data = $query -> fetch(PDO::FETCH_ASSOC);
-       
         if ($query -> rowCount() > 0)
         {
             return false;

@@ -301,23 +301,6 @@ button:hover {
     border-bottom: 1px solid #dedede;
 }
 
-.houseColumn form select {
-    position: relative;
-    left: 8px;
-}
-
-.houseColumn form input[id=membershipType] {
-    position: relative;
-    left: 48px;
-    background-color: #dedede;
-}
-
-.houseColumn form input[id=registrationDate] {
-    position: relative;
-    left: 5px;
-    background-color: #dedede;
-}
-
 .houseColumn form input[type='submit'] {
     background-color: #4285f4;
     color: #fff;
@@ -406,4 +389,30 @@ p {
 .usimg .us {
     position: absolute;
     padding: 10px;
+}
+
+
+
+.house-container{
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    align-items: center;
+}
+
+.house-body{
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1 rem;
+}
+
+.house-body > *{
+    margin-bottom: 0.5rem;
+}
+
+img.house-img{
+    max-width: 29rem;
+    width: 100%
 }
