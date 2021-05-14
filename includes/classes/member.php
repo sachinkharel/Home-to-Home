@@ -6,16 +6,17 @@ class member{
         $this->con = $con;
     }
     public function getmembership($mType,$mDate,$payment){
-                $sql = "INSERT into member (mType,mDate,payment,uid) VALUES
+            $sql = "INSERT into member (mType,mDate,payment,uid) VALUES
                                              (:t,:d,:p,:uid)";
-                $query = $this -> con -> prepare($sql);
-                $query->bindValue(":t",$mType);
-                $query->bindValue(":d",$mDate);
-                $query->bindValue(":p",$payment);
-                $query->bindValue(":uid",$_SESSION["userId"]);
-                $query->execute();
-                header("Location: userpage.php");
-            }
+            $query = $this -> con -> prepare($sql);
+            $query->bindValue(":t",$mType);
+            $query->bindValue(":d",$mDate);
+            $query->bindValue(":p",$payment);
+             $query->bindValue(":uid",$_SESSION["userId"]);
+            $query->execute();
+            header("Location: userpage.php");
+        }
+
     public function checkmembership()
     {
         $query = $this -> con -> prepare("SELECT * FROM member WHERE uid = :uid");
@@ -31,4 +32,35 @@ class member{
             return true;
         }
     }
+
+    public function getmemberCount()
+    {
+        $query = $this -> con -> prepare("SELECT * FROM member WHERE uid = :uid");
+        $query -> bindValue(":uid",$_SESSION["userId"]);
+        $query ->execute();
+        $this -> data = $query -> fetch(PDO::FETCH_ASSOC);
+        $count = $this -> data["count"];
+        $type = $this -> data["mType"];
+
+        if (strcmp($type,"Platinum"))
+        {
+            return true;
+        }
+        if(strcmp($type, "Gold"))
+        {
+            if ($count <=4)
+                return true;
+            else
+                return false;
+        }
+        if(strcmp($type, "Silver"))
+        {
+            if ($count <=2)
+                return true;
+            else
+                return false;
+        }
+
+    }
+    
 }

@@ -7,12 +7,13 @@
 
  $gethome = new Home($con);
 
+
 ?>
 
 <!DOCTYPE HTML>
 <div class = "house-container">
     <?php 
         $gethome->listHouses();
-       // echo "<img src ='uploads/$res'>";
+       // echo "<img src ='uploads/$res'>"
     ?>
 </div>

@@ -392,20 +392,18 @@ p {
 }
 
 
-
 .house-container{
     display: flex;
     justify-content: space-between; 
-    flex-wrap: wrap; 
     align-items: center;
 }
 
 .house-body{
     border: 0.1rem #c0c0c0 solid;
-    background-color: #f8f8f8;
+    background-color:#efefee;
     border-radius: 0.5rem;
     margin: 1rem;
-    padding: 1 rem;
+    padding: 1rem;
 }
 
 .house-body > *{
@@ -415,4 +413,28 @@ p {
 img.house-img{
     max-width: 29rem;
     width: 100%
+}
+
+.exchangebtn{
+
+    background-color: #6caaa5;
+    border: 2px solid whitesmoke;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 0.8px solid whitesmoke;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: whitesmoke;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+}
+.exchangebtn:hover{
+    opacity: 50px;
+    border: 2px solid black;
 }

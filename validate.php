@@ -5,16 +5,33 @@ require_once("includes/classes/Constants.php");
 require_once("includes/config.php");
 require_once("usernavbar.php");
 require_once("includes/classes/home.php");
+require_once("includes/classes/member.php");
 
 
 $chckhome = new Home($con);
-if($chckhome -> checkList())
+$chckmem = new Member($con);
+if(!$chckmem -> checkmembership())
 {
-    header("Location: exchangeForm.php");
+    if($chckmem -> getmemberCount())
+    {
+        if($chckhome -> checkList())
+        {
+            header("Location: exchangeForm.php");
+        }
+        else
+        {
+            echo "Listing for this house already created";
+        }
+    }
+    else
+    {
+        echo "Maximum capcity of exchange reached";
+    }
+    
 }
 else
 {
-    echo "Listing for this house already created";
+    echo "Create a membership first to continue";
 }
 
 

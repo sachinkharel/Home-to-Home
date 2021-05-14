@@ -36,22 +36,33 @@ class Home{
     }
     public function listHouses()
     {
-        $sql = "SELECT * FROM home";
-        $query = $this -> con -> prepare($sql);
-       // $query -> bindValue(":search",$keyword);
-        $query -> execute();
-        while($row = $query -> fetch(PDO::FETCH_ASSOC))              
+        if(isset($_POST['search']))
         {
-            $loc = $row['location'];
-            $photo = $row['picture'];
-            $size = $row['size'];
-            $avail = $row['availat'];
-            echo "<div class = 'house-body'>
-            <img class = 'house-img' src='uploads/$photo'/>
-            <div class ='house-loc'>Location: $loc</div>
-            <div class ='house-size'>Size: $size</div>
-            <div class ='house-avail'>Available Till: $avail</div>
-            </div>";
+        if(isset($_POST['place']))
+        {
+
+            $place=$_POST['place'];
+            $sql = "SELECT * FROM home where location='$place'";
+            $query = $this -> con -> prepare($sql);
+        // $query -> bindValue(":search",$keyword);
+            $query -> execute();
+            while($row = $query -> fetch(PDO::FETCH_ASSOC))              
+            {
+                $loc = $row['location'];
+                $photo = $row['picture'];
+                $size = $row['size'];
+                $avail = $row['availat'];
+                echo "<div class = 'house-body'>
+                <form action = 'exchange.php' method = 'POST'>
+                <img class = 'house-img' src='uploads/$photo'/>
+                <div class ='house-loc'>Location: $loc</div>
+                <div class ='house-size'>Size: $size</div>
+                <div class ='house-avail'>Available Till: $avail</div>
+                <input type = 'submit' value = 'Echange' name = 'finalbutton' class ='exchangebtn' />
+                </form>
+                </div>";
+                }
+            }
         }
     }
 
