@@ -32,15 +32,14 @@ class Home{
         else{
             echo "<div>Error</div>";
         }
-
     }
+    
     public function listHouses()
     {
         if(isset($_POST['search']))
         {
         if(isset($_POST['place']))
         {
-
             $place=$_POST['place'];
             $sql = "SELECT * FROM home where location='$place'";
             $query = $this -> con -> prepare($sql);
@@ -48,16 +47,24 @@ class Home{
             $query -> execute();
             while($row = $query -> fetch(PDO::FETCH_ASSOC))              
             {
+                $userid = $row['userid'];
+                $query2 = $this -> con -> prepare("SELECT * FROM u_details WHERE id = '$userid'");
+                $query2 -> execute();
+                $userdata = $query2 -> fetch(PDO::FETCH_ASSOC);  
                 $loc = $row['location'];
                 $photo = $row['picture'];
                 $size = $row['size'];
                 $avail = $row['availat'];
+                $name = $userdata['Name'];
+                $phone = $userdata['Phno'];
                 echo "<div class = 'house-body'>
                 <form action = 'exchange.php' method = 'POST'>
                 <img class = 'house-img' src='uploads/$photo'/>
                 <div class ='house-loc'>Location: $loc</div>
                 <div class ='house-size'>Size: $size</div>
                 <div class ='house-avail'>Available Till: $avail</div>
+                <div>Name: $name</div>
+                <div>Phone Number: $phone</div>
                 <input type = 'submit' value = 'Echange' name = 'finalbutton' class ='exchangebtn' />
                 </form>
                 </div>";
@@ -83,8 +90,6 @@ class Home{
         }
     }
 
-
-    
 }
 
 
