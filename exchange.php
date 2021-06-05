@@ -7,13 +7,20 @@
     require_once("includes/classes/home.php");
     require_once("includes/classes/member.php");
     $mem =  new member($con);
-    if($mem -> getmemberCount())
+    if(!$mem->checkmembership())
     {
-        $mem -> setmembercount();
-        echo "EXHCNAGE SUCCESSFULL";
+        if($mem -> getmemberCount())
+        {
+            $mem -> setmembercount();
+            echo "EXHCNAGE SUCCESSFULL";
+        }
+        else
+        {
+            echo "Maximum capcity of exchange reached";
+        }
     }
     else
     {
-        echo "Maximum capcity of exchange reached";
+        echo "Create a member first";
     }
 ?>
